@@ -55,17 +55,60 @@
         <div class="row row-cols-1 row-cols-lg-2" >
             <div class="col-lg-8">
                 <pre class="line-numbers"><code class=language-javascript">
-                    //Call Hello World
-                    function HelloWorld(){
-                        alert("Hello World");
-                    }
+                    //Get the string from the page
+//controller function
+function getString(){
+
+    document.getElementById("alert").classList.add("invisible");
+    
+    let userString = document.getElementById("userString").value;   
+    
+    let revString = reverseString(userString);
+    
+    displayString(revString);
+}
+
+//Reverse the string
+//logic function
+
+function reverseString(userString){
+
+    let revString = [];
+    //reverse a string using a for loop
+
+    for (let index = userString.length-1; index >= 0; index--) {
+        revString += userString[index];
+        
+    }
+    return revString;
+}
+
+//Display the reversed string to the user
+//view function
+function displayString(revString){
+
+//write to the page
+document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+//show the alert box
+document.getElementById("alert").classList.remove("invisible");
+}
                 </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message "Hello World."</p>
+                <p>The Code is structured in three functions.</p>
+                <h5 class="border-1 border-bottom border-dark">FUNCTION: "getString"</h5>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;First the function adds the class setting of "invisible" to the 'alert' in the HTML page. Next, the string that was types in by the user is restrieved.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;A variable is set to hold the result of the 'reverseString' function. The result is then transfered to the 'displayString' function.</p>
+                
+                <h5 class="border-1 border-bottom border-dark">FUNCTION: "reverseString"</h5>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;First, we initialize an array 'revString'. Next, we run a loop to retrieve each character from a string based off of how long it is, and then working our way back. As each character is being pulled, it is sent to the 'revString' array and appened with each loop.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The resulting array is then sent back to the 'getString' function.</p>
+
+                <h5 class="border-1 border-bottom border-dark">FUNCTION: "displayString"</h5>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;First, the function receives a string from the 'getString' function.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Next, the string is sent to the 'alert' section of the HTML page.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Finally, the invisible class is removed from the 'alert' section of the HTML page to make it now visable.</p>
             </div>
         </div>
         
